@@ -1,6 +1,5 @@
 " =========================== General ===========================
-" Automatically reloading .vimrc
-autocmd! bufwritepost .vimrc source %
+" Automatically reloading .vimrc autocmd! bufwritepost .vimrc source %
 
 " show line number 
 set number
@@ -19,6 +18,10 @@ set cursorline
 set cursorcolumn
 hi cursorline cterm=bold ctermbg=237 ctermfg=none term=bold
 hi cursorcolumn cterm=bold ctermbg=237 ctermfg=none term=bold
+
+" backspace setup fix auto indent problem
+" http://vim.wikia.com/wiki/Backspace_and_delete_problems
+set backspace=2
 
 " highlight comment 
 highlight Comment ctermfg=green guifg=green  
@@ -48,6 +51,7 @@ Plugin 'gmarik/Vundle.vim'
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'Yggdroot/indentLine'
+Plugin 'Valloric/YouCompleteMe'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -59,6 +63,15 @@ set nofoldenable
 set laststatus=2
 let g:Powerline_symbols='unicode'
 
+" Youcomplteme 
+let g:ycm_path_to_python_interpreter='/usr/bin/python'
+let g:ycm_seed_identifiers_with_syntax=1
+let g:ycm_min_num_of_chars_for_completion=2
+let g:ycm_autoclose_preview_window_after_completlion=1
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+" Ctrl+n => down, Ctrl+p => up
+inoremap <expr> <Down>     pumvisible() ? '\<C-n>' : '\<Down>'
+inoremap <expr> <Up>       pumvisible() ? '\<C-p>' : '\<Up>'
 
 " :set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1 
 " autocmd BufWinLeave * if expand("%") != "" | mkview | endif
