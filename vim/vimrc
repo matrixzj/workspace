@@ -1,0 +1,59 @@
+" Automatically reloading .vimrc
+autocmd! bufwritepost .vimrc source %
+
+"" global config
+" show line number 
+set number
+" enable mouse
+set mouse=a
+" set fond
+set guifont=Monaco:h13
+" syntax highlight
+syntax on
+" highlight current line/row
+set cursorline
+set cursorcolumn
+hi cursorline cterm=bold ctermbg=237 ctermfg=none term=bold
+hi cursorcolumn cterm=bold ctermbg=237 ctermfg=none term=bold
+
+"" shortcut
+" Ctrl + w for save
+noremap <C-w> :w<CR>
+
+" moving code blocks for better indentation
+vnoremap < <gv
+vnoremap > >gv
+
+" powerline needed
+set laststatus=2
+let g:Powerline_symbols='unicode'
+
+" Vundle (Vim Extensions Manager) config
+set nocompatible              " required
+filetype off                  " required
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
+Plugin 'Lokaltog/vim-powerline'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" python editing needed
+set nofoldenable
+
+" set display=lastline
+
+ 
+" folder type config
+autocmd FileType python setlocal ai tabstop=4 shiftwidth=4 expandtab
+autocmd FileType yaml setlocal ai ts=2 sw=2 et
+ 
+highlight Comment ctermfg=green guifg=green  
+" set foldmethod=expr
+" :set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1 
+" autocmd BufWinLeave * if expand("%") != "" | mkview | endif
+" autocmd BufWinEnter * if expand("%") != "" | loadview | endif
