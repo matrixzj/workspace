@@ -30,7 +30,15 @@ highlight Comment ctermfg=green guifg=green
 " file type config
 autocmd FileType python setlocal ai tabstop=4 shiftwidth=4 expandtab
 autocmd FileType yaml setlocal ai ts=2 sw=2 et
-au BufNewFile *.py 0r ~/workspace/vim/python.template
+auto BufNewFile *.py 0r ~/workspace/vim/python.template
+
+" foldexpr config
+set foldenable
+set foldmethod=expr
+auto BufWinLeave * silent mkview
+auto BufWinEnter * silent loadview
+" auto folder cmd based space line 
+" :set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1 
 
 " =========================== Shortcut ===========================
 " Ctrl + w for save
@@ -61,7 +69,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " python editing needed
-set nofoldenable
+autocmd FileType python setlocal nofoldenable
 
 " powerline needed
 set laststatus=2
@@ -83,6 +91,3 @@ let g:lastplace_open_folds = 1
 " indendline
 let g:indentLine_char='┆'
 let g:indentLine_enabled = 1 
-" :set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1 
-" autocmd BufWinLeave * if expand("%") != "" | mkview | endif
-" autocmd BufWinEnter * if expand("%") != "" | loadview | endif
