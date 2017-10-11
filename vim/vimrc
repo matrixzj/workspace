@@ -1,22 +1,29 @@
+" =========================== General ===========================
 " Automatically reloading .vimrc
 autocmd! bufwritepost .vimrc source %
 
-"" global config
 " show line number 
 set number
+
 " enable mouse
 set mouse=a
-" set fond
+
+" set font
 set guifont=Monaco:h13
+
 " syntax highlight
 syntax on
+
 " highlight current line/row
 set cursorline
 set cursorcolumn
 hi cursorline cterm=bold ctermbg=237 ctermfg=none term=bold
 hi cursorcolumn cterm=bold ctermbg=237 ctermfg=none term=bold
 
-"" shortcut
+" highlight comment 
+highlight Comment ctermfg=green guifg=green  
+
+" =========================== Shortcut ===========================
 " Ctrl + w for save
 noremap <C-w> :w<CR>
 
@@ -24,10 +31,11 @@ noremap <C-w> :w<CR>
 vnoremap < <gv
 vnoremap > >gv
 
-" powerline needed
-set laststatus=2
-let g:Powerline_symbols='unicode'
+" file type config
+autocmd FileType python setlocal ai tabstop=4 shiftwidth=4 expandtab
+autocmd FileType yaml setlocal ai ts=2 sw=2 et
 
+" =========================== Plugin ===========================
 " Vundle (Vim Extensions Manager) config
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 set nocompatible              " required
@@ -39,6 +47,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 Plugin 'Lokaltog/vim-powerline'
+Plugin 'Yggdroot/indentLine'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -46,12 +55,10 @@ filetype plugin indent on    " required
 " python editing needed
 set nofoldenable
 
-" folder type config
-autocmd FileType python setlocal ai tabstop=4 shiftwidth=4 expandtab
-autocmd FileType yaml setlocal ai ts=2 sw=2 et
- 
-" highlight comment 
-highlight Comment ctermfg=green guifg=green  
+" powerline needed
+set laststatus=2
+let g:Powerline_symbols='unicode'
+
 
 " :set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1 
 " autocmd BufWinLeave * if expand("%") != "" | mkview | endif
