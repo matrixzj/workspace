@@ -26,6 +26,8 @@ set backspace=2
 " highlight comment 
 highlight Comment ctermfg=green guifg=green  
 
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+
 " =========================== Shortcut ===========================
 " Ctrl + w for save
 noremap <C-w> :w<CR>
@@ -52,6 +54,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'Yggdroot/indentLine'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'farmergreg/vim-lastplace'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -70,8 +73,12 @@ let g:ycm_min_num_of_chars_for_completion=2
 let g:ycm_autoclose_preview_window_after_completlion=1
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " Ctrl+n => down, Ctrl+p => up
+inoremap <expr> <CR>       pumvisible() ? '<C-y>' : '\<CR>'
 inoremap <expr> <Down>     pumvisible() ? '\<C-n>' : '\<Down>'
 inoremap <expr> <Up>       pumvisible() ? '\<C-p>' : '\<Up>'
+			\
+" lastplace\
+let g:lastplace_open_folds = 1
 
 " :set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1 
 " autocmd BufWinLeave * if expand("%") != "" | mkview | endif
