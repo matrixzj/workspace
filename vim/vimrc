@@ -29,6 +29,7 @@ set laststatus=2
 let g:Powerline_symbols='unicode'
 
 " Vundle (Vim Extensions Manager) config
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 set nocompatible              " required
 filetype off                  " required
 " set the runtime path to include Vundle and initialize
@@ -45,15 +46,13 @@ filetype plugin indent on    " required
 " python editing needed
 set nofoldenable
 
-" set display=lastline
-
- 
 " folder type config
 autocmd FileType python setlocal ai tabstop=4 shiftwidth=4 expandtab
 autocmd FileType yaml setlocal ai ts=2 sw=2 et
  
+" highlight comment 
 highlight Comment ctermfg=green guifg=green  
-" set foldmethod=expr
+
 " :set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1 
 " autocmd BufWinLeave * if expand("%") != "" | mkview | endif
 " autocmd BufWinEnter * if expand("%") != "" | loadview | endif
