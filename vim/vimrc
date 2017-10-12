@@ -8,6 +8,9 @@ set number
 " enable mouse
 set mouse=a
 
+" enable paste mode
+set paste
+
 " set font
 set guifont=Monaco:h13
 
