@@ -1,0 +1,47 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+alias ta='tmux attach'
+
+# Change window name for `tmux`
+case "$TERM" in
+    screen*)
+	PROMPT_COMMAND="printf '\033k$(hostname -s)\033\\';"${PROMPT_COMMAND}
+        ;;
+esac
+
+ssh() {
+    if [ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" = "tmux" ]; then
+        #tmux rename-window "$(echo $* | cut -d . -f 1)"
+        tmux rename-window "$(echo $* | cut -d @ -f 2)"
+        command ssh "$@"
+        tmux set-window-option automatic-rename "on" 1>/dev/null
+    else
+        command ssh "$@"
+    fi
+}
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+# BEGIN ANSIBLE MANAGED BLOCK
+DOMAIN=$(hostname | cut -d. -f2)
+if [ ${DOMAIN} == 'fwmrm' ]; then
+PS1='\n\
+\[\e[0;36m\]\u@\H\[\e[0;30;1m\]:\[\e[0;33m\]\w \[\e[0;30;1m\]· \@ \d ·\[\e[0m\] \n\
+\[\e[0;31m\]!\! \[\e[0;37;1m\]\$\[\e[0m\] '
+elif [ ${DOMAIN} == 'dev' ]; then
+PS1='\n\
+\[\e[0;33m\]\u@\H\[\e[0;30;1m\]:\[\e[0;33m\]\w \[\e[0;31;1m\]· \@ \d ·\[\e[0m\] \n\
+\[\e[0;31m\]!\! \[\e[0;37;1m\]\$\[\e[0m\] '
+alias vim='/usr/local/bin/vim'
+fi
+# END ANSIBLE MANAGED BLOCK
+
+export HISTTIMEFORMAT="%d/%m/%y %T "
+export HISTFILESIZE=10000
