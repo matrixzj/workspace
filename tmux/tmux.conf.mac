@@ -1,0 +1,101 @@
+# cat << ►_◄ > /dev/null
+
+
+# -- general -------------------------------------------------------------------
+
+set -g default-terminal "screen-256color" # colors!
+setw -g xterm-keys on
+set -s escape-time 0                      # fastest command sequences
+set -sg repeat-time 600                   # increase repeat timeout
+set -g prefix2 C-a                        # GNU-Screen compatible prefix
+bind C-a send-prefix -2
+
+# uncomment to force vi-style key bindings
+# emacs is the default unless $EDITOR or $VISUAL contain 'vi'
+set -g status-keys vi
+setw -g mode-keys vi
+
+set -g history-limit 10000                 # boost history
+
+# edit configuration
+bind e new-window -n '~/.tmux.conf' '${EDITOR:-vim} ~/.tmux.conf && tmux source ~/.tmux.conf && tmux display "~/.tmux.conf sourced"'
+
+# reload configuration
+bind r source-file ~/.tmux.conf \; display '~/.tmux.conf sourced'
+
+# set background color for active pane
+set-window-option -g window-status-current-bg colour121
+
+# -- display -------------------------------------------------------------------
+
+set -g base-index 1         # start windows numbering at 1
+setw -g pane-base-index 1   # make pane numbering consistent with windows
+
+# setw -g automatic-rename on # rename window to reflect current program
+# setw -g automatic-rename off # rename window to reflect current program
+# renumber windows when a window is closed
+set -g renumber-windows on
+
+set -g set-titles on                        # set terminal title
+set -g display-panes-time 800 # slightly longer pane indicators display time
+set -g display-time 1000      # slightly longer status messages display time
+set -g status-interval 3     # redraw status line every 10 seconds
+
+# 24 hour clock
+setw -g clock-mode-style 24
+
+# clear both screen and history
+bind -n C-l send-keys C-l \; run 'tmux clear-history'
+
+# activity
+set -g monitor-activity on
+set -g visual-activity off
+
+# find session
+bind C-f command-prompt -p find-session 'switch-client -t %%'
+
+# pane navigation
+bind -r h select-pane -L  # move left
+bind -r j select-pane -D  # move down
+bind -r k select-pane -U  # move up
+bind -r l select-pane -R  # move right
+bind > swap-pane -D       # swap current pane with the next one
+bind < swap-pane -U       # swap current pane with the previous one
+
+# maximize current pane
+bind + run 'cut -c3- ~/.tmux.conf | sh -s maximize_pane'
+
+# pane resizing
+bind -r H resize-pane -L 2
+bind -r J resize-pane -D 2
+bind -r K resize-pane -U 2
+bind -r L resize-pane -R 2
+
+# window navigation
+bind -r C-h previous-window # select previous window
+bind -r C-l next-window     # select next window
+bind Space last-window      # move to last active window
+
+# toggle mouse
+bind m run "cut -c3- ~/.tmux.conf | sh -s toggle_mouse"
+
+bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'select-pane -t=; copy-mode -e; send-keys -M'"  
+bind -n WheelDownPane select-pane -t= \; send-keys -M 
+
+
+# -- copy mode -----------------------------------------------------------------
+bind Enter copy-mode # enter copy mode
+bind b list-buffers  # list paster buffers
+bind p paste-buffer  # paste from the top pate buffer
+bind P choose-buffer # choose which buffer to paste from
+
+# -- powerline -----------------------------------------------------------------
+# git clone https://github.com/erikw/tmux-powerline.git
+set -g status on
+set-option -g status on
+set-option -g status-interval 2
+set-option -g status-justify "centre"
+set-option -g status-left-length 60
+set-option -g status-right-length 90
+set-option -g status-left "#(~/Downloads/workspace/tmux/powerline/powerline.sh left)"
+set-option -g status-right "#(~/Downloads/workspace/tmux/powerline/powerline.sh right)"
