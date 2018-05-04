@@ -51,6 +51,19 @@ noremap <C-w> :w<CR>
 vnoremap < <gv
 vnoremap > >gv
 
+" vim installation to support YouCompleteMe
+" sudo yum -y install gcc ncurses-devel automake gcc gcc-c++ kernel-devel cmake python-devel python3-devel
+" git clone https://github.com/vim/vim.git
+" cd vim
+" ./configure --with-features=huge --enable-multibyte --enable-rubyinterp=yes --enable-pythoninterp=yes --enable-python3interp=yes --enable-gui=gtk2 --enable-cscope
+" make
+" sudo make install
+" vim --version | grep python
+ 
+" install YouCompleteMe
+" cd .vim/bundle/YouCompleteMe/
+" git submodule update --init --recursive
+" ./install.py
 
 " =========================== Plugin ===========================
 " Vundle (Vim Extensions Manager) config
