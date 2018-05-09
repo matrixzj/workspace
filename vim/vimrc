@@ -61,12 +61,11 @@ vnoremap > >gv
 " vim --version | grep python
 " sudo update-alternatives --install /usr/bin/editor editor /usr/local/bin/vim 1
 " sudo update-alternatives --set editor /usr/local/bin/vim
-" sudo update-alternatives --install /usr/bin/vim vim /usr/local/bin/vim 1
  
 " install YouCompleteMe
 " cd .vim/bundle/YouCompleteMe/
 " git submodule update --init --recursive
-" ./install.py
+" ./install.py --clang-completer
 
 " =========================== Plugin ===========================
 " Vundle (Vim Extensions Manager) config
