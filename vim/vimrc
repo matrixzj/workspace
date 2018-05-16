@@ -82,6 +82,8 @@ Plugin 'Lokaltog/vim-powerline'
 Plugin 'Yggdroot/indentLine'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'farmergreg/vim-lastplace'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -109,3 +111,6 @@ let g:lastplace_open_folds = 1
 " indendline
 let g:indentLine_char='┆'
 let g:indentLine_enabled = 1 
+
+" markdown show symbols
+let g:vim_markdown_conceal = 0
