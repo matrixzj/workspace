@@ -114,3 +114,8 @@ let g:indentLine_enabled = 1
 
 " markdown show symbols
 let g:vim_markdown_conceal = 0
+
+colorscheme oblivion
+set t_Co=256
+hi Normal ctermbg=none
+highlight nonText ctermbg=NONE
