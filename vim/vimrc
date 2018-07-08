@@ -33,6 +33,7 @@ highlight Comment ctermfg=green guifg=green
 " file type config
 autocmd FileType python setlocal ai tabstop=4 shiftwidth=4 expandtab
 autocmd FileType yaml setlocal ai ts=2 sw=2 et
+autocmd FileType json setlocal ai ts=2 sw=2 et 
 auto BufNewFile *.py 0r ~/workspace/vim/python.template
 
 " foldexpr config
@@ -111,10 +112,12 @@ let g:lastplace_open_folds = 1
 " indendline
 let g:indentLine_char='┆'
 let g:indentLine_enabled = 1 
+let g:indentLine_setConceal = 0
 
 " markdown show symbols
 let g:vim_markdown_conceal = 0
 
+" change color theme to oblivion
 colorscheme oblivion
 set t_Co=256
 hi Normal ctermbg=none

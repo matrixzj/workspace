@@ -36,4 +36,7 @@ EOF
 source ~/.bashrc
 
 # vim setup
+mkdir -p ~/.vim/colors
+ln -sf ~/downloads/workspace/vim/oblivion.vim ~/.vim/colors/oblivion.vim
+ln -sf ~/downloads/workspace/vim/oblivion.vim ~/.vim/colors/Oblivion.vim
 ln -sf ~/downloads/workspace/vim/vimrc ~/.vimrc
