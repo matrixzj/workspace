@@ -33,8 +33,9 @@ highlight Comment ctermfg=green guifg=green
 " file type config
 autocmd FileType python setlocal ai tabstop=4 shiftwidth=4 expandtab
 autocmd FileType yaml setlocal ai ts=2 sw=2 et
+autocmd FileType bash setlocal ai ts=4 sw=4 et
 autocmd FileType json setlocal ai ts=2 sw=2 et 
-auto BufNewFile *.py 0r ~/workspace/vim/python.template
+" auto BufNewFile *.py 0r ~/workspace/vim/python.template
 
 " foldexpr config
 set foldenable
