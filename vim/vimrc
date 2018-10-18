@@ -17,6 +17,9 @@ set guifont=Monaco:h13
 " syntax highlight
 syntax on
 
+" set tab as 4 spaces
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+
 " highlight current line/row
 set cursorline
 set cursorcolumn
@@ -31,7 +34,7 @@ set backspace=2
 highlight Comment ctermfg=green guifg=green  
 
 " file type config
-autocmd FileType python setlocal ai tabstop=4 shiftwidth=4 expandtab
+" autocmd FileType python setlocal ai tabstop=4 shiftwidth=4 expandtab
 autocmd FileType yaml setlocal ai ts=2 sw=2 et
 autocmd FileType bash setlocal ai ts=4 sw=4 et
 autocmd FileType json setlocal ai ts=2 sw=2 et 
@@ -82,7 +85,7 @@ Plugin 'gmarik/Vundle.vim'
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'Yggdroot/indentLine'
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'farmergreg/vim-lastplace'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
