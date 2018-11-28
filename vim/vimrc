@@ -106,9 +106,6 @@ let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_min_num_of_chars_for_completion=2
 let g:ycm_autoclose_preview_window_after_completlion=1
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-" Ctrl+n => down, Ctrl+p => up
-inoremap <expr> <Down>     pumvisible() ? '\<C-n>' : '\<Down>'
-inoremap <expr> <Up>       pumvisible() ? '\<C-p>' : '\<Up>'
 
 " lastplace
 let g:lastplace_open_folds = 1
