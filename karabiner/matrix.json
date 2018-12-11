@@ -135,6 +135,58 @@
                 "type": "basic"
             }
         ]
-    }
+    },
+		{
+      "description": "Credentials",
+      "manipulators": [
+			{
+			    "type": "basic",
+			    "from": {
+			        "key_code": "semicolon",
+			        "modifiers": {
+			            "mandatory": [
+			                "left_command"
+			            ],
+			            "optional": [
+			                "any"
+			            ]
+			        }
+			    },
+			    "to": [
+			        {
+			            "key_code": "a"
+			        },
+			        {
+			            "key_code": "b"
+			        },
+			        {
+			            "key_code": "b"
+							}
+			    ]
+			},
+			{
+				"type": "basic",
+				"from": {
+					"key_code": "quote",
+					"modifiers": {
+					    "mandatory": [
+					        "left_command"
+					    ],
+					    "optional": [
+					        "any"
+					    ]
+					}
+				},
+				"to": [
+						{
+							"key_code": "b"
+						},
+						{
+							"key_code": "c"
+						}
+				]
+			}
+			]
+		}
    ]
 }
