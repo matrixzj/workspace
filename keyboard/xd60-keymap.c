@@ -32,9 +32,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             case C_PIPE:
                 SEND_STRING("|"); // this is our macro!
                 return false;
-	    case LEDOFF:
-        	rgblight_toggle();
-		return false;
+     	    case LEDOFF:
+            	rgblight_toggle();
+	        	return false;
             default:
                 switch (timer_elapsed32(key_timer) % 7) {
                   case 0:
