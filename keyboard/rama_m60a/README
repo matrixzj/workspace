@@ -14,3 +14,7 @@ backlight effect:
  8= Jellybean Raindrops
  9= Radial All Hues
 10= Radial Color 1
+
+qmk link:https://github.com/qmk/qmk_firmware/tree/master/keyboards/rama/m60_a
+
+build cmd: make rama/m60_a:matrixzj
