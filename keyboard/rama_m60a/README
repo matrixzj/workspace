@@ -1,0 +1,16 @@
+	modified:   keyboards/rama/m60_a/rules.mk
+	modified:   keyboards/zeal60/rgb_backlight.c
+	modified:   keyboards/zeal60/rgb_backlight_keycodes.h
+
+backlight effect:
+ 0= All Off
+ 1= Solid Color 1
+ 2= Alphas/Mods Color 1/2
+ 3= Gradient Vertical Color 1/2 
+ 4= Raindrops Color 1/2
+ 5= Cycle All
+ 6= Cycle Horizontal
+ 7= Cycle Vertical
+ 8= Jellybean Raindrops
+ 9= Radial All Hues
+10= Radial Color 1

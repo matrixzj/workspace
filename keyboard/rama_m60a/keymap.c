@@ -8,10 +8,13 @@
 const uint8_t RGBLED_BREATHING_INTERVALS[] PROGMEM = {240, 160, 80, 40};
 
 enum custom_keycodes {
-    C_PASS1 = SAFE_RANGE,
-    C_USER,
-    C_PASS2,
-    C_PIPE,
+    MY_USER = SAFE_RANGE,
+    MY_PASS1,
+    MY_PASS2,
+    MY_PIPE,
+    FW_PRD,
+    FW_DEV,
+    FW_ILO,
     LEDOFF
 };
 
@@ -20,17 +23,26 @@ uint32_t key_timer;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
         switch(keycode) {
-            case C_PASS1:
-                SEND_STRING("aaa"); // username!
+            case MY_USER:
+                SEND_STRING("aaa");
                 return false;
-            case C_USER:
-                SEND_STRING("bbb"); // passwd1!
+            case MY_PASS1:
+                SEND_STRING("bbb");
                 return false;
-            case C_PASS2:
-                SEND_STRING("ccc"); // another passwd!
+            case MY_PASS2:
+                SEND_STRING("ccc");
                 return false;
-            case C_PIPE:
+            case MY_PIPE:
                 SEND_STRING("|"); // this is our macro!
+                return false;
+            case FW_PRD:
+                SEND_STRING("ddd");
+                return false;
+            case FW_DEV:
+                SEND_STRING("eee");
+                return false;
+            case FW_ILO:
+                SEND_STRING("fff");
                 return false;
             default:
                 return true;
@@ -52,8 +64,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Fn1 Layer
 [1] = LAYOUT_60_hhkb(
     RESET,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,   KC_F12,  KC_INS,   KC_TRNS,
-    C_PIPE,  KC_VOLD, KC_VOLU, KC_MUTE, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,
-    KC_TRNS, KC_MRWD, KC_MPLY, KC_MFFD, KC_TRNS, KC_TRNS, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,C_USER,  C_PASS1,  KC_ENT,
-    KC_LSFT, BR_OFF,  EF_INC,  ES_INC,  BR_INC,  H1_INC,  S1_INC,  H2_INC,  S2_INC,  KC_TRNS, C_PASS2, KC_TRNS,  KC_TRNS,
+    MY_PIPE, KC_VOLD, KC_VOLU, KC_MUTE, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, FW_ILO,  FW_DEV,   FW_PRD,  KC_TRNS,
+    KC_TRNS, KC_MRWD, KC_MPLY, KC_MFFD, KC_TRNS, KC_TRNS, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,MY_USER, MY_PASS1, KC_ENT,
+    KC_LSFT, BR_OFF,  EF_INC,  ES_INC,  BR_INC,  H1_INC,  S1_INC,  H2_INC,  S2_INC,  KC_TRNS, MY_PASS2,KC_TRNS,  KC_TRNS,
              KC_TRNS, KC_TRNS,                            KC_TRNS,                            KC_TRNS, KC_TRNS),
 };
