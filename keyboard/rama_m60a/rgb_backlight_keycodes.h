@@ -31,5 +31,6 @@ enum backlight_keycodes {
 	H2_DEC,
 	S2_INC,
 	S2_DEC,
+	BR_MAX,
 	BR_OFF
 };

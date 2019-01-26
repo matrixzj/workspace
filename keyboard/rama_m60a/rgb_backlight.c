@@ -1732,6 +1732,14 @@ bool process_record_backlight(uint16_t keycode, keyrecord_t *record)
 			}
 			return false;
 			break;
+		case BR_MAX:
+			if (record->event.pressed)
+			{
+				g_config.brightness = 255;
+				backlight_config_save();
+			}
+			return false;
+			break;
 		case BR_INC:
 			if (record->event.pressed)
 			{
