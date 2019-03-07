@@ -30,16 +30,23 @@ set backspace=2
 " highlight comment 
 highlight Comment ctermfg=green guifg=green  
 
+set conceallevel=0
+
 " file type config
-autocmd FileType python setlocal ai tabstop=4 shiftwidth=4 expandtab
+autocmd FileType python setlocal ai tabstop=4 shiftwidth=4 expandtab 
+autocmd FileType python nnoremap <buffer> <F5> :exec '!python' shellescape(@%, 1)<cr>
 autocmd FileType yaml setlocal ai ts=2 sw=2 et
+autocmd FileType json setlocal ai ts=2 sw=2 et 
 auto BufNewFile *.py 0r ~/workspace/vim/python.template
 
 " foldexpr config
 set foldenable
 set foldmethod=expr
-auto BufWinLeave * silent mkview
-auto BufWinEnter * silent loadview
+autocmd BufWinLeave * if expand("%") != "" | mkview | endif
+autocmd BufWinEnter * if expand("%") != "" | loadview | endif
+" #auto BufWinLeave * silent mkview
+" #auto BufWinEnter * silent loadview
+
 " auto folder cmd based space line 
 " :set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1 
 
