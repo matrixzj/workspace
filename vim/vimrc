@@ -17,6 +17,9 @@ set guifont=Monaco:h13
 " syntax highlight
 syntax on
 
+" set tab as 4 spaces
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+
 " highlight current line/row
 set cursorline
 set cursorcolumn
@@ -58,6 +61,21 @@ noremap <C-w> :w<CR>
 vnoremap < <gv
 vnoremap > >gv
 
+" vim installation to support YouCompleteMe
+" sudo yum -y install gcc ncurses-devel automake gcc gcc-c++ kernel-devel cmake python-devel python3-devel
+" git clone https://github.com/vim/vim.git
+" cd vim
+" ./configure --with-features=huge --enable-multibyte --enable-rubyinterp=yes --enable-pythoninterp=yes --enable-python3interp=yes --enable-gui=gtk2 --enable-cscope
+" make
+" sudo make install
+" vim --version | grep python
+" sudo update-alternatives --install /usr/bin/editor editor /usr/local/bin/vim 1
+" sudo update-alternatives --set editor /usr/local/bin/vim
+ 
+" install YouCompleteMe
+" cd .vim/bundle/YouCompleteMe/
+" git submodule update --init --recursive
+" ./install.py --clang-completer
 
 " =========================== Plugin ===========================
 " Vundle (Vim Extensions Manager) config
@@ -74,6 +92,8 @@ Plugin 'Lokaltog/vim-powerline'
 Plugin 'Yggdroot/indentLine'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'farmergreg/vim-lastplace'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -91,9 +111,6 @@ let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_min_num_of_chars_for_completion=2
 let g:ycm_autoclose_preview_window_after_completlion=1
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-" Ctrl+n => down, Ctrl+p => up
-inoremap <expr> <Down>     pumvisible() ? '\<C-n>' : '\<Down>'
-inoremap <expr> <Up>       pumvisible() ? '\<C-p>' : '\<Up>'
 
 " lastplace
 let g:lastplace_open_folds = 1
@@ -101,3 +118,13 @@ let g:lastplace_open_folds = 1
 " indendline
 let g:indentLine_char='┆'
 let g:indentLine_enabled = 1 
+let g:indentLine_setConceal = 0
+
+" markdown show symbols
+let g:vim_markdown_conceal = 0
+
+" change color theme to oblivion
+colorscheme oblivion
+set t_Co=256
+hi Normal ctermbg=none
+highlight nonText ctermbg=NONE
