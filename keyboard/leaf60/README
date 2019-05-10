@@ -1,0 +1,10 @@
+leaf60:
+edge padding:
+    top: 4.475, left: 2.475, bottom: 4.475, right: 2.475
+plate corner:
+    radius: 2mm
+cut polygon:
+    circle: 
+        diameter: 2.7, center: [0,0], relative: [-x+3.8,-y+1.8];[-x+97.8,-y+1.8];[x-97.8,-y+1.8]; [x-3.8,-y+1.8];[-x+3.8,y-1.8];[-x+97.8,y-1.8];[x-97.8,y-1.8]; [x-3.8,y-1.8]
+    rounded rectangle:
+        radius: 1, width: 9.5, height: 6, relative: [0,-y], center[0,2.5]
