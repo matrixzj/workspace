@@ -52,6 +52,8 @@ autocmd BufWinEnter * if expand("%") != "" | loadview | endif
 
 " auto folder cmd based space line 
 " :set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1 
+" disable folder 
+set nofoldenable
 
 " =========================== Shortcut ===========================
 " Ctrl + w for save
@@ -94,6 +96,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'farmergreg/vim-lastplace'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'dracula/vim', { 'name': 'dracula' }
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -124,7 +127,11 @@ let g:indentLine_setConceal = 0
 let g:vim_markdown_conceal = 0
 
 " change color theme to oblivion
-colorscheme oblivion
+" colorscheme oblivion
+" change color theme to dracula
+colorscheme dracula
+syntax on
+
 set t_Co=256
 hi Normal ctermbg=none
 highlight nonText ctermbg=NONE
