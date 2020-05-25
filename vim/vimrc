@@ -19,6 +19,7 @@ syntax on
 
 " set tab as 4 spaces
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+" paste text will break expandtab, 'set expandtab' will fix it
 
 " highlight current line/row
 set cursorline
@@ -97,6 +98,7 @@ Plugin 'farmergreg/vim-lastplace'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'dracula/vim', { 'name': 'dracula' }
+Plugin 'tmhedberg/SimpylFold'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -127,11 +129,17 @@ let g:indentLine_setConceal = 0
 let g:vim_markdown_conceal = 0
 
 " change color theme to oblivion
-" colorscheme oblivion
+colorscheme oblivion
 " change color theme to dracula
-colorscheme dracula
-syntax on
+" colorscheme dracula
+" syntax on
 
 set t_Co=256
 hi Normal ctermbg=none
 highlight nonText ctermbg=NONE
+
+" highlight comment 
+highlight Comment ctermfg=green guifg=green  
+
+" foldering
+let g:SimpylFold_docstring_preview = 1
