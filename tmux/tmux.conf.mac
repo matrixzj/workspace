@@ -15,6 +15,11 @@ bind C-a send-prefix -2
 set -g status-keys vi
 setw -g mode-keys vi
 
+# enable mouse scroll up
+set-option -g mouse on
+
+set -g utf8 on
+
 set -g history-limit 10000                 # boost history
 
 # edit configuration
@@ -22,9 +27,6 @@ bind e new-window -n '~/.tmux.conf' '${EDITOR:-vim} ~/.tmux.conf && tmux source 
 
 # reload configuration
 bind r source-file ~/.tmux.conf \; display '~/.tmux.conf sourced'
-
-# set background color for active pane
-set-window-option -g window-status-current-bg colour121
 
 # -- display -------------------------------------------------------------------
 
@@ -97,5 +99,5 @@ set-option -g status-interval 2
 set-option -g status-justify "centre"
 set-option -g status-left-length 60
 set-option -g status-right-length 90
-set-option -g status-left "#(~/Downloads/workspace/tmux/powerline/powerline.sh left)"
-set-option -g status-right "#(~/Downloads/workspace/tmux/powerline/powerline.sh right)"
+set-option -g status-left "#(~/Downloads/workspace/tmux-powerline/powerline.sh left)"
+set-option -g status-right "#(~/Downloads/workspace/tmux-powerline/powerline.sh right)"

@@ -12,7 +12,7 @@ rbenv_version() {
 # %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info) ⌚ %{$fg_bold[red]%}%*%{$reset_color%}
 # $ '
 PROMPT='
-%{$fg_bold[yellow]%}%n@Matrix-MacBook-Pro%{$reset_color%}:%{$fg_bold[yellow]%}%d%{$reset_color%} %{$fg_bold[red]%}%W %*%{$reset_color%}
+%{$fg_bold[yellow]%}%n@Matrix-WorkBox%{$reset_color%}:%{$fg_bold[yellow]%}%d%{$reset_color%} %{$fg_bold[red]%}%W %*%{$reset_color%}
 %h $ '
 
 # Must use Powerline font, for \uE0A0 to render.
