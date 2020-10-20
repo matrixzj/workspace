@@ -75,10 +75,6 @@ vnoremap > >gv
 " sudo update-alternatives --install /usr/bin/editor editor /usr/local/bin/vim 1
 " sudo update-alternatives --set editor /usr/local/bin/vim
  
-" install YouCompleteMe
-" cd .vim/bundle/YouCompleteMe/
-" git submodule update --init --recursive
-" ./install.py --clang-completer
 
 " =========================== Plugin ===========================
 " Vundle (Vim Extensions Manager) config
@@ -95,6 +91,13 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Yggdroot/indentLine'
+" install YouCompleteMe
+" $ cd ~/.vim/bundle
+" $ git clone https://github.com/ycm-core/YouCompleteMe.git
+" $ cd YouCompleteMe/
+" $ git checkout legacy-py2
+" $ git submodule update --init --recursive
+" $ ./install.py --clang-completer
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'farmergreg/vim-lastplace'
 Plugin 'godlygeek/tabular'
@@ -118,6 +121,9 @@ let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_min_num_of_chars_for_completion=2
 let g:ycm_autoclose_preview_window_after_completlion=1
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+" YouCompletMe with python3
+let g:ycm_server_python_interpreter='/usr/local/bin/python3'
+let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 
 " lastplace
 let g:lastplace_open_folds = 1
@@ -142,7 +148,3 @@ highlight nonText ctermbg=NONE
 
 " foldering
 let g:SimpylFold_docstring_preview = 1
-
-" YouCompletMe with python3
-let g:ycm_server_python_interpreter='/usr/local/bin/python3'
-let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
