@@ -77,7 +77,10 @@ vnoremap > >gv
  
 " install YouCompleteMe
 " cd .vim/bundle/YouCompleteMe/
+" switch back to python2
+" git checkout legacy-py2
 " git submodule update --init --recursive
+" if hash error was shown for libclang-9.0.0-x86_64-unknown-linux-gnu.tar.bz2, it can be downloaded from https://gitee.com/ithewei/YCM/raw/e0aab9a7fe533855388b628849a9a53d94c1f35b/third_party/ycmd/clang_archives/libclang-9.0.0-x86_64-unknown-linux-gnu.tar.bz2
 " ./install.py --clang-completer
 
 " =========================== Plugin ===========================
@@ -135,6 +138,8 @@ let g:vim_markdown_conceal = 0
 " change color theme to dracula
 colorscheme dracula
 syntax on
+highlight Comment ctermfg=green guifg=green
+
 
 set t_Co=256
 hi Normal ctermbg=none
@@ -142,7 +147,3 @@ highlight nonText ctermbg=NONE
 
 " foldering
 let g:SimpylFold_docstring_preview = 1
-
-" YouCompletMe with python3
-let g:ycm_server_python_interpreter='/usr/local/bin/python3'
-let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
