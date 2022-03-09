@@ -99,7 +99,7 @@ Plugin 'Yggdroot/indentLine'
 " $ git submodule update --init --recursive
 " if hash error was shown for libclang-9.0.0-x86_64-unknown-linux-gnu.tar.bz2, it can be downloaded from https://gitee.com/ithewei/YCM/raw/e0aab9a7fe533855388b628849a9a53d94c1f35b/third_party/ycmd/clang_archives/libclang-9.0.0-x86_64-unknown-linux-gnu.tar.bz2
 " $ ./install.py --clang-completer
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'farmergreg/vim-lastplace'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'

@@ -5,6 +5,8 @@ if [ -d ~/downloads/tmux-powerline ]; then
 	rm -rf  ~/downloads/tmux-powerline
 fi
 
+os=$(uname)
+
 cd  ~/downloads
 git clone https://github.com/erikw/tmux-powerline.git
 
@@ -12,7 +14,11 @@ sed -i.bak '/TMUX_POWERLINE_PATCHED_FONT_IN_USE_DEFAULT/s/true/false/' ~/downloa
 sed -i.bak '/TMUX_POWERLINE_SEG_WEATHER_LOCATION/a\export TMUX_POWERLINE_SEG_WEATHER_LOCATION="2151330"' ~/downloads/tmux-powerline/segments/weather.sh
 sed -i.bak '/wan_ip/s/\(.*\)/#&1/;/pwd/s/\(.*\)/#&1/;/mailcount/s/\(.*\)/#&1/;/now_play/s/\(.*\)/#&1/;/battery/s/\(.*\)/#&1/;/load/s/\(.*\)/#&1/' ~/downloads/tmux-powerline/themes/default.sh
 
-ln -sf ~/downloads/workspace/tmux/tmux.conf ~/.tmux.conf
+if [[ ${os} = "Darwin" ]]; then
+    ln -sf ~/Documents/workspace/tmux/tmux.conf.mac ~/.tmux.conf
+else
+    ln -sf ~/Documents/workspace/tmux/tmux.conf ~/.tmux.conf
+fi
 
 # bashrc setup
 cat << EOF >> ~/.bashrc
@@ -37,6 +43,12 @@ source ~/.bashrc
 
 # vim setup
 mkdir -p ~/.vim/colors
-ln -sf ~/downloads/workspace/vim/oblivion.vim ~/.vim/colors/oblivion.vim
-ln -sf ~/downloads/workspace/vim/oblivion.vim ~/.vim/colors/Oblivion.vim
-ln -sf ~/downloads/workspace/vim/vimrc ~/.vimrc
+ln -sf ~/Documents/workspace/vim/oblivion.vim ~/.vim/colors/oblivion.vim
+ln -sf ~/Documents/workspace/vim/oblivion.vim ~/.vim/colors/Oblivion.vim
+ln -sf ~/Documents/workspace/vim/vimrc ~/.vimrc
+
+# zsh setup
+cp ~/Documents/workspace/matrix.zsh-theme ~/.oh-my-zsh/themes/
+sed -i '/^ZSH_THEME/s/=.*/="matrix"/' ~/.zshrc
+echo 'export LC_ALL=en_US.UTF-8' >> ~/.zshrc
+echo 'export LANG=en_US.UTF-8' >> ~/.zshrc
