@@ -27,6 +27,7 @@ run_segment() {
 
 	if [ -z "$wan_ip" ]; then
 		wan_ip=$(curl --max-time 2 -s http://whatismyip.akamai.com/)
+        # wan_ip=$(curl --max-time 2 -s http://ifconfig.me)
 
 		if [ "$?" -eq "0" ]; then
 			echo "${wan_ip}" > $tmp_file
