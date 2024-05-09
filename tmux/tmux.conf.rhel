@@ -24,7 +24,7 @@ bind e new-window -n '~/.tmux.conf' '${EDITOR:-vim} ~/.tmux.conf && tmux source 
 bind r source-file ~/.tmux.conf \; display '~/.tmux.conf sourced'
 
 # set background color for active pane
-set-window-option -g window-status-current-bg colour121
+# set-window-option -g window-status-current-bg colour121
 
 # -- display -------------------------------------------------------------------
 
@@ -113,3 +113,6 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run -b '~/.tmux/plugins/tpm/tpm'
+
+# Enable Mouse Support
+set -g mouse on
