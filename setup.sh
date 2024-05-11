@@ -38,6 +38,7 @@ if [ $? -eq 1 ]; then
 # BEGIN Matrix Customized BLOCK
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+alias ll='ls -al --color=auto'
 # END Matrix Customized BLOCK
 EOF
 fi
@@ -49,17 +50,19 @@ source ~/.zshrc
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 if [[ ${os} = "Darwin" ]]; then
-    ln -sf ~/Documents/workspace/tmux/tmux.conf.mac ~/.tmux.conf
+    ln -sf $(pwd)/tmux/tmux.conf.mac ~/.tmux.conf
+elif [[ ${os} = "Linux" ]]; then
+    ln -sf $(pwd)/tmux/tmux.conf.linux ~/.tmux.conf
 else
-    ln -sf ~/Documents/workspace/tmux/tmux.conf ~/.tmux.conf
+    ln -sf $(pwd)/tmux/tmux.conf ~/.tmux.conf
 fi
 
-[ -d ~/.tmux/plugins/tmux-powerline ] || mkdir -p ~/.tmux/plugins/tmux-powerline/themes
 ln -sf $(pwd)/tmux/tmux-powerline/config.sh ~/.config/tmux-powerline/config.sh
+[ -d ~/.config/tmux-powerline/themes ] || mkdir -p ~/.config/tmux-powerline/themes
 ln -sf $(pwd)/tmux/tmux-powerline/themes/matrix.sh ~/.config/tmux-powerline/themes/matrix.sh
  
 # # VIM Config
-# mkdir -p ~/.vim/colors
-# ln -sf $(pwd)/vim/oblivion.vim ~/.vim/colors/oblivion.vim
-# ln -sf $(pwd)/vim/oblivion.vim ~/.vim/colors/Oblivion.vim
-# ln -sf $(pwd)/vim/vimrc ~/.vimrc
+mkdir -p ~/.vim/colors
+ln -sf $(pwd)/vim/oblivion.vim ~/.vim/colors/oblivion.vim
+ln -sf $(pwd)/vim/oblivion.vim ~/.vim/colors/Oblivion.vim
+ln -sf $(pwd)/vim/vimrc ~/.vimrc
