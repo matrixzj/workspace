@@ -10,11 +10,7 @@
 set -g prefix2 C-a                        # GNU-Screen compatible prefix
 bind C-a send-prefix -2
 
-## color
-set -g default-terminal "screen-256color" 
 setw -g xterm-keys on
-## fastest command sequences
-set -s escape-time 0
 ## increase repeat timeout
 set -sg repeat-time 600  
 
@@ -25,9 +21,6 @@ setw -g mode-keys vi
 
 ## enable mouse (scroll up/down)
 set -g mouse on
-
-## boost histroy
-set -g history-limit 10000
 
 ## automatically switch active pane based on mouse/keyboard actions
 set -g monitor-activity on
@@ -91,15 +84,14 @@ set -g set-titles on
 ## slightly longer pane indicators display time 
 set -g display-panes-time 800
 
-## slightly longer status messages display time 
-set -g display-time 1000
-
 # -- TPM (Tmux Plugin Management) ----------------------------------------------
 ## Plugin Install: git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ## Hot-Key for listed plugin Installation: `bind I`
 ## List of plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'erikw/tmux-powerline'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-yank'
 
 ## Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'
