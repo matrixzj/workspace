@@ -391,8 +391,8 @@
 	export TMUX_POWERLINE_SEG_WEATHER_JSON="jq"
 	# Your location
 	# Latitude and Longtitude for use with yr.no
-	TMUX_POWERLINE_SEG_WEATHER_LAT="24.47"
-	TMUX_POWERLINE_SEG_WEATHER_LON="54.37"
+	TMUX_POWERLINE_SEG_WEATHER_LAT="24.49"
+	TMUX_POWERLINE_SEG_WEATHER_LON="54.40"
 # }
 
 # xkb_layout.sh {
