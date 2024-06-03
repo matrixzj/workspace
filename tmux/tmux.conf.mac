@@ -41,6 +41,9 @@ bind -n C-l send-keys C-l \; run 'tmux clear-history'
 ## find session
 bind C-f command-prompt -p find-session 'switch-client -t %%'
 
+## toggle synchronize pane (input for all panes)
+bind s set-window-option synchronize-panes\; display-message "synchronize-panes is now #{?pane_synchronized,on,off}"
+
 ## window navigation
 ## `bind w` interactively window navigation
 bind -r C-h previous-window # select previous window
