@@ -373,9 +373,9 @@
 
 # wan_ip.sh {
 	# Symbol for WAN IP
-	# export TMUX_POWERLINE_SEG_WAN_IP_SYMBOL="ⓦ "
+	export TMUX_POWERLINE_SEG_WAN_IP_SYMBOL="ⓦ "
 	# Symbol colour for WAN IP
-	# export TMUX_POWERLINE_SEG_WAN_IP_SYMBOL_COLOUR="255"
+	export TMUX_POWERLINE_SEG_WAN_IP_SYMBOL_COLOUR="255"
 # }
 
 # weather.sh {
