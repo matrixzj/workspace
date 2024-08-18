@@ -389,8 +389,8 @@
 	export TMUX_POWERLINE_SEG_WEATHER_GREP="grep"
 	# Location of the JSON parser, jq
 	export TMUX_POWERLINE_SEG_WEATHER_JSON="jq"
-	# Your location
-	# Latitude and Longtitude for use with yr.no
+	# Your location (Abu Dhabi)
+	# Latitude and Longtitude from https://www.latlong.net/
 	TMUX_POWERLINE_SEG_WEATHER_LAT="24.49"
 	TMUX_POWERLINE_SEG_WEATHER_LON="54.40"
 # }
